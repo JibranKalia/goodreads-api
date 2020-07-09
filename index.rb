@@ -37,14 +37,16 @@ def get_books(author_id, page, author_last_name, file)
     title = get_value_from_result(doc, '//title_without_series', i)
     print(file, "#{isbn}, #{title}, #{author_last_name}")
   end
-rescue NoMethodError => e
 end
 
 def get_author_books(author_name, file)
   last_name = author_name.split(' ').last
   author_id = find_author_id(author_name)
-  3.times do |page|
-    get_books(author_id, page + 1, last_name, file)
+  30.times do |page|
+    begin
+      get_books(author_id, page + 1, last_name, file)
+    rescue NoMethodError => e
+    end
   end
 end
 
