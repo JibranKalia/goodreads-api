@@ -1,0 +1,20 @@
+GEM
+  specs:
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.6)
+    mini_portile2 (2.4.0)
+    multi_xml (0.6.0)
+    nokogiri (1.10.9)
+      mini_portile2 (~> 2.4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  httparty
+  nokogiri
+
+BUNDLED WITH
+   2.1.1
