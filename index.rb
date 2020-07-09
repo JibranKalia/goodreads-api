@@ -16,7 +16,6 @@ def goodreads_call(url, query)
     query: query,
     headers: headers
   )
-  sleep(0.5)
   Nokogiri::XML(result.body)
 end
 
@@ -43,15 +42,16 @@ end
 def get_author_books(author_name, file)
   last_name = author_name.split(' ').last
   author_id = find_author_id(author_name)
-  5.times do |page|
+  3.times do |page|
     get_books(author_id, page + 1, last_name, file)
   end
 end
 
 def run(author_list)
-  file = open('run_5.txt', 'a')
+  file = open('run_8.txt', 'a')
+  count = author_list.count
   author_list.each_with_index do |author, i|
-    puts "*************** #{author} #{i} / 100 ***********************"
+    puts "*************** #{author} #{i} / #{count} ***********************"
     get_author_books(author, file)
   end
 end
