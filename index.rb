@@ -16,7 +16,7 @@ def goodreads_call(url, query)
     query: query,
     headers: headers
   )
-  sleep(1)
+  sleep(0.5)
   Nokogiri::XML(result.body)
 end
 
