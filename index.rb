@@ -35,11 +35,9 @@ def get_books(author_id, page, author_last_name, file)
   doc.xpath('//isbn13').each_with_index do |isbn_path, i|
     isbn = isbn_path.children.first.content
     title = get_value_from_result(doc, '//title_without_series', i)
-    csv_line = "#{isbn}, #{title}, #{author_last_name}"
-    print(file, csv_line)
+    print(file, "#{isbn}, #{title}, #{author_last_name}")
   end
 rescue NoMethodError => e
-  puts e.message
 end
 
 def get_author_books(author_name, file)
