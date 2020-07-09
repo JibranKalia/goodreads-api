@@ -43,13 +43,13 @@ end
 def get_author_books(author_name, file)
   last_name = author_name.split(' ').last
   author_id = find_author_id(author_name)
-  30.times do |page|
+  5.times do |page|
     get_books(author_id, page + 1, last_name, file)
   end
 end
 
 def run(author_list)
-  file = open('run_4.txt', 'a')
+  file = open('run_5.txt', 'a')
   author_list.each_with_index do |author, i|
     puts "*************** #{author} #{i} / 100 ***********************"
     get_author_books(author, file)
