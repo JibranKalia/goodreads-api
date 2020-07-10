@@ -8,7 +8,7 @@ def print(file, csv_line)
 end
 
 def goodreads_call(url, query)
-  query[:key] = 'eNZGpGUW00cnC7NXPdKA'
+  query[:key] = ENV['GOODREADS_API_KEY']
   headers = { 'Content-Type' => 'application/xml; charset=utf-8' }
 
   result = HTTParty.get(
